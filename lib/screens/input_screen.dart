@@ -25,8 +25,8 @@ class _InputScreenState extends State<InputScreen> {
   Gender selectedGender;
   Units selectedUnits = Units.metric;
 
-  int height = 180;
-  int weight = 75;
+  int height = 170;
+  int weight = 62;
   int age = 25;
 
   @override
