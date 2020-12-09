@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tdee_calculator/constants.dart';
 
 class MinusPlusButtonRow extends StatelessWidget {
   MinusPlusButtonRow({
@@ -11,6 +13,7 @@ class MinusPlusButtonRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: designSize);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -18,12 +21,14 @@ class MinusPlusButtonRow extends StatelessWidget {
           icon: Icon(
             Icons.remove,
           ),
+          iconSize: kIconSize.w,
           onPressed: onMinusPressed,
         ),
         IconButton(
           icon: Icon(
             Icons.add,
           ),
+          iconSize: kIconSize.w,
           onPressed: onPlusPressed,
         ),
       ],

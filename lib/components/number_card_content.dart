@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tdee_calculator/constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NumberCardContent extends StatelessWidget {
   NumberCardContent({
@@ -16,12 +17,16 @@ class NumberCardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: designSize);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text(label),
+        Text(
+          label,
+          style: TextStyle(fontSize: kLabelFontSize.w),
+        ),
         SizedBox(
-          height: 10,
+          height: 10.w,
         ),
         unit != null
             ? Row(
@@ -31,19 +36,26 @@ class NumberCardContent extends StatelessWidget {
                 children: [
                   Text(
                     number,
-                    style: kNumberTextStyle,
+                    style: TextStyle(
+                      fontSize: kNumberFontSize.w,
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
                   SizedBox(
-                    width: 4,
+                    width: 4.w,
                   ),
                   Text(
                     unit,
+                    style: TextStyle(fontSize: kUnitFontSize.w),
                   ),
                 ],
               )
             : Text(
                 number,
-                style: kNumberTextStyle,
+                style: TextStyle(
+                  fontSize: kNumberFontSize.w,
+                  fontWeight: FontWeight.w800,
+                ),
               ),
         numberChanger,
       ],

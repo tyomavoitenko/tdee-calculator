@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tdee_calculator/constants.dart';
 import 'package:tdee_calculator/components/alert_dialog.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ResultCardContent extends StatelessWidget {
   final String title;
@@ -17,6 +18,7 @@ class ResultCardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: designSize);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -26,12 +28,12 @@ class ResultCardContent extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 24.w,
               ),
             ),
             additionalInfo != null
                 ? Container(
-                    padding: const EdgeInsets.only(left: 4),
+                    padding: EdgeInsets.only(left: 4.w),
                     child: GestureDetector(
                       onTap: () {
                         showAlertDialog(
@@ -41,6 +43,7 @@ class ResultCardContent extends StatelessWidget {
                       },
                       child: Icon(
                         Icons.info_outline,
+                        size: kIconSize.w,
                       ),
                     ),
                   )
@@ -48,15 +51,18 @@ class ResultCardContent extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: 5,
+          height: 5.w,
         ),
         Text(
           description,
-          style: kSecondaryTextStyle,
+          style: TextStyle(
+            color: kSecondaryTextColor,
+            fontSize: kSecondaryFontSize.w,
+          ),
           textAlign: TextAlign.center,
         ),
         SizedBox(
-          height: 20,
+          height: 20.w,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -66,20 +72,21 @@ class ResultCardContent extends StatelessWidget {
             Text(
               '$result',
               style: TextStyle(
-                fontSize: 56,
+                fontSize: 56.w,
                 fontWeight: FontWeight.w300,
                 color: kThemeMainColor,
                 fontStyle: FontStyle.italic,
               ),
             ),
             SizedBox(
-              width: 4,
+              width: 4.w,
             ),
             Text(
               'kcal',
               style: TextStyle(
                 fontStyle: FontStyle.italic,
                 color: kThemeMainColor,
+                fontSize: 16.w,
               ),
             ),
           ],

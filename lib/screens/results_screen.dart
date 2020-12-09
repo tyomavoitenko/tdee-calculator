@@ -3,6 +3,8 @@ import 'package:tdee_calculator/components/custom_card.dart';
 import 'package:tdee_calculator/components/result_card_content.dart';
 import 'package:tdee_calculator/components/bottom_button.dart';
 import 'package:tdee_calculator/components/scrollable_wrapper.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tdee_calculator/constants.dart';
 
 class ResultsScreen extends StatelessWidget {
   final int bmr;
@@ -17,9 +19,13 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: designSize);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Results'),
+        title: Text(
+          'Results',
+          style: TextStyle(fontSize: kAppBarFontSize.w),
+        ),
       ),
       // Make the entire screen scrollable if there is not enough room to see the entire contents
       body: ScrollableWrapper(

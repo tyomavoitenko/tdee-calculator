@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tdee_calculator/constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UnitsButton extends StatelessWidget {
   UnitsButton({
@@ -14,6 +15,7 @@ class UnitsButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: designSize);
     BoxDecoration decoration;
 
     if (isActive) {
@@ -52,12 +54,13 @@ class UnitsButton extends StatelessWidget {
         onTap: onTap,
         child: Container(
           decoration: decoration,
-          height: 40,
+          height: 40.w,
           child: Center(
             child: Text(
               units.toString().split('.')[1].toUpperCase(),
               style: TextStyle(
                 color: isActive ? kMainTextColor : kThemeMainColor,
+                fontSize: kLabelFontSize.w,
               ),
             ),
           ),

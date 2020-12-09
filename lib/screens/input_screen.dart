@@ -15,6 +15,7 @@ import 'package:tdee_calculator/models/calculator.dart';
 import 'package:tdee_calculator/screens/results_screen.dart';
 import 'package:tdee_calculator/components/alert_dialog.dart';
 import 'package:tdee_calculator/components/scrollable_wrapper.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class InputScreen extends StatefulWidget {
   @override
@@ -31,9 +32,13 @@ class _InputScreenState extends State<InputScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: designSize);
     return Scaffold(
       appBar: AppBar(
-        title: Text('TDEE Calculator'),
+        title: Text(
+          'TDEE Calculator',
+          style: TextStyle(fontSize: kAppBarFontSize.w),
+        ),
       ),
       // Make the entire screen scrollable if there is not enough room to see the entire contents
       body: ScrollableWrapper(
@@ -42,7 +47,7 @@ class _InputScreenState extends State<InputScreen> {
           children: <Widget>[
             // Units Buttons Section
             Container(
-              padding: const EdgeInsets.fromLTRB(4, 8, 4, 4),
+              padding: EdgeInsets.fromLTRB(4.w, 8.w, 4.w, 4.w),
               child: Row(
                 children: <Widget>[
                   UnitsButton(
